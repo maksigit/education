@@ -155,10 +155,11 @@ console.log('///////////////////////////////////// 2 ///////////////////////////
 const arr11 = [];
 let str = ''
 for (let i = 1; i < 10; i++) {
-    for (let j = 1; j <= i; j++)
+    for (let j = 1; j <= i; j++) {
         str += i;
-        arr11.push(str); //?????????????
-        str = ''
+    }
+    arr11.push(str); //?????????????
+    str = ''
 }
 
 console.log(arr11);
@@ -189,10 +190,132 @@ const arr12 = [1, 2, 3, 4, 5, 6]
 let sum = 0;
 
 for (let i = 0; i < arr12.length; i++) {
-    if( sum <= 10) {
+    if (sum <= 10) {
         sum += arr12[i]
     } else {
         console.log(i);
     }
-    
 }
+
+console.log('///////////////////////////////////// BLOCK 3 //////////////////////////////////////////');
+console.log('///////////////////////////////////// 1 //////////////////////////////////////////');
+
+// Сделайте функцию isNumberInRange, которая параметром принимает число и проверяет,
+// что оно больше нуля и меньше 10.
+// Если это так - пусть функция возвращает true, если не так - false.
+
+function isNumberInRange(x) {
+    if (x > 0 && x <= 10) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(isNumberInRange(11));
+
+console.log('///////////////////////////////////// 2 //////////////////////////////////////////');
+// Дан массив с числами. Запишите в новый массив только те числа, которые больше нуля и
+// меньше 10-ти. Для этого используйте вспомогательную функцию isNumberInRange из предыдущей
+// задачи.
+const arr13 = [1, 5, 11, 8, 15];
+const arr14 = [];
+
+for (let i = 0; i < arr13.length; i++) {
+    if (isNumberInRange(arr13[i])) {
+        arr14.push(arr13[i])
+    }
+}
+
+console.log(arr14);
+
+console.log('///////////////////////////////////// 3 //////////////////////////////////////////');
+// Сделайте функцию getDigitsSum (digit - это цифра), которая параметром принимает целое
+// число и возвращает сумму его цифр.
+
+
+function getDigitsSum(digit) {
+    let toStr = String(digit)
+
+    let digitArr = toStr.split('')
+
+    let sum = 0;
+
+    for (let i = 0; i < digitArr.length; i++) {
+        sum += Number(digitArr[i])
+    }
+
+    return sum
+}
+
+console.log(getDigitsSum(2018));
+
+console.log('///////////////////////////////////// 4 //////////////////////////////////////////');
+// Найдите все года от 1 до 2018, сумма цифр которых равна 13.
+// Для этого используйте вспомогательную функцию getDigitsSum из предыдущей задачи.
+
+let years = [];
+
+for (let i = 1; i < 2019; i++) {
+    // console.log(getDigitsSum(i))
+    if (getDigitsSum(i) == 13) {
+        years.push(i)
+    }
+}
+
+console.log(years)
+
+console.log('///////////////////////////////////// 5 //////////////////////////////////////////');
+
+// Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число
+// и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное - false.
+
+function isEven(x) {
+    if (x % 2 == 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(isEven(10))
+console.log(isEven(15))
+console.log(isEven(120))
+
+console.log('///////////////////////////////////// 6 //////////////////////////////////////////');
+
+// Дан массив с целыми числами. Создайте из него новый массив, где останутся лежать только
+// четные из этих чисел. Для этого используйте вспомогательную функцию isEven из предыдущей
+// задачи.
+
+const arr15 = [1, 5, 10, 8, 17, 20]
+
+for (let i = 0; i < arr15.length; i++) {
+    if (!(isEven(arr15[i]))) {
+        delete arr15[i]
+    }
+}
+
+let arrN = arr15.filter(function (item) {
+    return item !== undefined
+})
+
+console.log(arrN)
+
+console.log('///////////////////////////////////// 7 //////////////////////////////////////////');
+
+// Сделайте функцию getDivisors, которая параметром принимает число и возвращает массив его
+// делителей (чисел, на которое делится данное число).
+
+const arr16 = []
+
+function getDivisors(x) {
+    for (let i = 0; i <= x; i++) {
+        if (x % i == 0) {
+            arr16.push(i)
+        }
+    }
+    return arr16
+}
+
+console.log(getDivisors(10))
