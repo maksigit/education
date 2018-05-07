@@ -31,8 +31,25 @@
 
 /*todo list*/
 
-#tasks {
+#form-output {
   margin-top: 20px;
   border: 1px solid #000;
   padding: 10px;
+}
+
+.list-output {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.close:before {
+  content: "\2715";
+  display: inline-block;
+  color: gray;
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
