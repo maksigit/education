@@ -1,0 +1,38 @@
+.mill {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrap {
+  background: url("../images/logo-glyph-36-red-sprite-c993b77446c447df70d8390f5b28563a.png") no-repeat;
+  width: 36px;
+  height: 36px;
+}
+
+.wrap:after {
+  display: block;
+  width: 36px;
+  height: 36px;
+  content: " ";
+  background: url("../images/logo-glyph-36-red-sprite-c993b77446c447df70d8390f5b28563a.png") no-repeat 110% 0;
+  transition: .8s;
+  /*transition: all 3s linear 0s;*/
+}
+
+.wrap:hover:after {
+  /*transform: rotate(360deg);*/
+  animation: rotation 3s linear infinite;
+}
+
+@keyframes rotation {
+  0% {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}
+
+/*todo list*/
+
+#tasks {
+  margin-top: 20px;
+  border: 1px solid #000;
+  padding: 10px;
+}
