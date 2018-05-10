@@ -34,13 +34,19 @@
 #form-output {
   margin-top: 20px;
   border: 1px solid #000;
-  padding: 10px;
+  padding: 10px 10px 30px ;
 }
 
 .list-output {
+  position: relative;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.close {
+  position: absolute;
+  left: 0;
 }
 
 .close:before {
@@ -52,4 +58,22 @@
 
 .line-through {
   text-decoration: line-through;
+  padding-left: 40px;
+}
+
+.remove-button {
+  position: absolute;
+  bottom: -25px;
+  left: 10px;
+}
+
+.item {
+  position: relative;
+  padding-left: 40px;
+
+}
+
+.check {
+  position: absolute;
+  left: 15px;
 }
