@@ -52,7 +52,7 @@ function eventRemoveOnButton (e) {
 
 function buttonOn() {
     let removeButton = document.createElement('button');
-    removeButton.className = "remove-button";
+    removeButton.className = 'remove-button';
     removeButton.innerHTML = 'Удалить выбранные';
     removeButton.addEventListener('click', eventRemoveOnButton);
     listOutput.appendChild(removeButton);
@@ -71,7 +71,7 @@ button.addEventListener('click', function (e) {
         setToLoc(item);
         createLi(itemObj);
     } else {
-        alert("INPUT TASK")
+        alert('INPUT TASK')
     }
 });
 
@@ -102,10 +102,10 @@ function handleLiOnClick(event)  {
     } else {
         document.querySelector('.remove-button').remove()
     }
-    if (this.className === "line-through") {
-        this.className = "item";
+    if (this.className === 'line-through') {
+        this.className = 'item';
     } else {
-        this.className = "line-through";
+        this.className = 'line-through';
     }
 }
 
@@ -114,11 +114,12 @@ function createLi(val) {
     newLi.setAttribute('data', val.id);
     let newInput = document.createElement('input');
     let close = document.createElement('span');
-    close.className = "close";
+    close.className = 'close';
     newInput.setAttribute('type', 'checkbox');
     newInput.className = 'check';
+    newInput.checked = val.completed;
     newLi.addEventListener('click', handleLiOnClick);
-    newLi.className = "item";
+    newInput.checked ? newLi.className = 'line-through' : newLi.className = 'item';
     newLi.innerHTML = val.title;
     newLi.appendChild(newInput);
     newLi.appendChild(close);
