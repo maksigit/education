@@ -148,5 +148,41 @@ listOutput.addEventListener('click', function (e) {
 
 creatLIFromArray(item);
 
+console.log("///////////////////////////////////////// TODO LIST JSON ///////////////////////////////////////////////////////");
+
+let addTasks = document.querySelector('.add-tasks');
+
+addTasks.addEventListener('click' , function (e) {
+    e.preventDefault();
+
+    let myObj;
+    // function reqListener () {
+    //     console.log(this.responseText);
+    //
+    // }
+
+// 1. Создаём новый объект XMLHttpRequest
+    let xhr = new XMLHttpRequest();
+    // xhr.onload = reqListener;
+
+// 2. Конфигурируем его: GET-запрос на URL 'phones.json'
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1', false);
+
+// 3. Отсылаем запрос
+    xhr.send();
+
+    myObj = JSON.parse(xhr.responseText);
+    let myObjLength = myObj.length;
+    console.log(myObj);
+
+    for (let i = 0; i < myObjLength; i++ ) {
+        createLi(myObj[i])
+    }
+    
+});
+
+
+
+
 
 
