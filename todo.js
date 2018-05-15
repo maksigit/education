@@ -166,18 +166,19 @@ addTasks.addEventListener('click' , function (e) {
     // xhr.onload = reqListener;
 
 // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1', false);
-
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1');
 // 3. Отсылаем запрос
     xhr.send();
 
-    myObj = JSON.parse(xhr.responseText);
-    let myObjLength = myObj.length;
-    console.log(myObj);
+    xhr.onload = function () {
+        myObj = JSON.parse(xhr.responseText);
+        let myObjLength = myObj.length;
+        console.log(myObj);
 
-    for (let i = 0; i < myObjLength; i++ ) {
-        createLi(myObj[i])
-    }
+        for (let i = 0; i < myObjLength; i++ ) {
+            createLi(myObj[i])
+        }
+    };
     
 });
 
