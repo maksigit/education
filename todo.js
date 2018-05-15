@@ -170,6 +170,11 @@ addTasks.addEventListener('click' , function (e) {
 // 3. Отсылаем запрос
 //     xhr.send();
     makeRequest();
+    makeRequest().then((obj) => {
+        for (let i = 0; i < obj.length; i++ ) {
+            createLi(obj[i])
+        }
+    });
 
 });
 
@@ -178,14 +183,9 @@ function makeRequest() {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1');
         xhr.onload = function () {
-            resolve();
-            let myObj = JSON.parse(xhr.responseText);
-            let myObjLength = myObj.length;
-            console.log(myObj);
 
-            for (let i = 0; i < myObjLength; i++ ) {
-                createLi(myObj[i])
-            }
+            let myObj = JSON.parse(xhr.responseText);
+            resolve(myObj);
         };
         xhr.onerror = () => reject(xhr.statusText);
         xhr.send();
