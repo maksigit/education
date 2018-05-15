@@ -155,32 +155,44 @@ let addTasks = document.querySelector('.add-tasks');
 addTasks.addEventListener('click' , function (e) {
     e.preventDefault();
 
-    let myObj;
+    // let myObj;
     // function reqListener () {
     //     console.log(this.responseText);
     //
     // }
 
 // 1. Создаём новый объект XMLHttpRequest
-    let xhr = new XMLHttpRequest();
+//     let xhr = new XMLHttpRequest();
     // xhr.onload = reqListener;
 
 // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1');
+//     xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1');
 // 3. Отсылаем запрос
-    xhr.send();
+//     xhr.send();
+    makeRequest();
 
-    xhr.onload = function () {
-        myObj = JSON.parse(xhr.responseText);
-        let myObjLength = myObj.length;
-        console.log(myObj);
-
-        for (let i = 0; i < myObjLength; i++ ) {
-            createLi(myObj[i])
-        }
-    };
-    
 });
+
+function makeRequest() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1');
+        xhr.onload = function () {
+            resolve();
+            let myObj = JSON.parse(xhr.responseText);
+            let myObjLength = myObj.length;
+            console.log(myObj);
+
+            for (let i = 0; i < myObjLength; i++ ) {
+                createLi(myObj[i])
+            }
+        };
+        xhr.onerror = () => reject(xhr.statusText);
+        xhr.send();
+    });
+}
+
+
 
 
 
