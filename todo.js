@@ -1,4 +1,4 @@
-console.log("///////////////////////////////////////// TODO LIST ///////////////////////////////////////////////////////");
+console.log("///////////////////////////////////////// TODO LIST ////////////////////////////////////////////////////");
 
 function setToLoc(o) {
     localStorage.setItem('item', JSON.stringify(o));
@@ -148,7 +148,7 @@ listOutput.addEventListener('click', function (e) {
 
 creatLIFromArray(item);
 
-console.log("///////////////////////////////////////// TODO LIST JSON ///////////////////////////////////////////////////////");
+console.log("///////////////////////////////////////// TODO LIST JSON ////////////////////////////////////////////");
 
 let addTasks = document.querySelector('.add-tasks');
 
@@ -193,7 +193,33 @@ function makeRequest() {
 }
 
 
+console.log("///////////////////////////////////////// DATE ///////////////////////////////////////////////////////");
 
+let wrapDate = document.querySelector('.wrap-date');
+let inputDate = document.querySelector('.input-date');
+let inputDateValue;
+
+inputDate.addEventListener('mouseout', function () {
+    let cDate = new Date();
+    inputDateValue = inputDate.value;
+
+    let dateParse = Date.parse(inputDateValue);
+
+    console.log(dateParse);
+    console.log(+cDate);
+    console.log((dateParse - cDate) / 86400000);
+
+    let totalDay = Math.ceil((dateParse - cDate) / 86400000);
+
+    let newDiv = document.createElement('div');
+    newDiv.innerHTML = 'To Happy Birthday: ' + totalDay;
+    wrapDate.appendChild(newDiv)
+
+});
+
+
+
+console.log(inputDate);
 
 
 
