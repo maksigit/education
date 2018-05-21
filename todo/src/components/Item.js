@@ -15,7 +15,6 @@ class Item extends Component {
       </div>
     );
   }
-
 }
 
 export default Item;

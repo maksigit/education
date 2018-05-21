@@ -18,7 +18,7 @@ class Input extends Component {
   render() {
     return (
       <div className="wrap-input">
-        <input type="text" className="input-task" onChange={this.handleOnChange} placeholder="Начать новый список"/>
+        <input type="text" value={this.state.valueInput} className="input-task" onChange={this.handleOnChange} placeholder="Начать новый список"/>
         <button className="add-task" onClick={this.handleClick}>Добавить таск</button>
         <Item data = {this.state.items} fn = {this.removeItemState} />
       </div>
@@ -26,7 +26,6 @@ class Input extends Component {
   }
 
   handleOnChange = event => {
-    event.preventDefault();
     console.log(event.target.value);
     this.setState({
       valueInput: event.target.value
@@ -35,28 +34,24 @@ class Input extends Component {
 
   removeItemState = (ev) => {
     getId = ev.nativeEvent.target.id;
-
     this.state.items.map((element, index) => {
       if (element.id === +getId) {
-        delete this.state.items[element.id - 1]
+        delete this.state.items[element.id - 1];
       }
-
       test = this.state.items;
       return test
-
     });
-
     this.setState({
       items: test
     });
-
     console.log(test);
   };
 
   handleClick = () => {
     item.push({id: this.generateId(), title: this.state.valueInput, completed: false});
     this.setState({
-      items: item
+      items: item,
+      valueInput: ''
     });
   };
 
@@ -64,7 +59,6 @@ class Input extends Component {
     i++;
     return i
   }
-
 }
 
 export default Input;
