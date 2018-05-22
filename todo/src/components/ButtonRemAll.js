@@ -4,7 +4,7 @@ class ButtonRemAll extends Component {
   render() {
     return (
       <div>
-        <button>Удалить выбранные</button>
+        <button onClick={this.props.fnDel}>Удалить выбранные</button>
       </div>
     );
   }

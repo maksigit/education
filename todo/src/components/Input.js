@@ -23,9 +23,24 @@ class Input extends Component {
     );
   }
 
+  deleteAllCheck = () => {
+    let tempItems = [...this.state.items];
+    let test = [];
+    tempItems.filter((element, index) => {
+      if(!element.completed) {
+          test.push(element)
+      }
+      console.log(test);
+      return test
+    });
+    this.setState({
+      items: test
+    });
+  };
+
   renderToDoButton = () => {
     const isAnyCompleted = this.state.items.find(element => element.completed);
-    return isAnyCompleted ? <ButtonRemAll /> : null;
+    return isAnyCompleted ? <ButtonRemAll fnDel={this.deleteAllCheck} /> : null;
   };
 
   checkInput = (id) => {
@@ -39,6 +54,8 @@ class Input extends Component {
     this.setState({
       items: tempItems
     });
+
+    console.log(this.state.items)
   };
 
   handleOnChange = event => {
