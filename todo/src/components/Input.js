@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
 
-// import Output from './Output';
 import Item from "./Item";
-// import ButtonRemAll from "./ButtonRemAll";
+import ButtonRemAll from "./ButtonRemAll";
 
-let i = 0;
-let checkParent;
-let checkParentAttr;
-let checkItem;
+let i = -1;
 
 class Input extends Component {
-
   state = {
     valueInput: '',
     items: [],
@@ -23,31 +18,27 @@ class Input extends Component {
                placeholder="Начать новый список"/>
         <button className="add-task" onClick={this.handleClick}>Добавить таск</button>
         <Item data={this.state.items} fn={this.removeItemState} fnCheck={this.checkInput}/>
-        {/*{this.renderToDoButton}*/}
+        {this.renderToDoButton()}
       </div>
     );
   }
 
-  // renderToDoButton = () => {
-  //   this.state.items.find((element, inex) => {
-  //     if(element.completed) {
-  //       return <ButtonRemAll />
-  //     }
-  //   });
-  //   return "ggg"
-  // };
+  renderToDoButton = () => {
+    const isAnyCompleted = this.state.items.find(element => element.completed);
+    return isAnyCompleted ? <ButtonRemAll /> : null;
+  };
 
-  checkInput = (eve) => {
-    checkParent = eve.nativeEvent.target.parentNode;
-    checkParentAttr = checkParent.getAttribute('id');
-    checkItem = this.state.items.map((element, index) => {
-      if (element.id === +checkParentAttr) {
-        this.state.items[checkParentAttr - 1].completed = true
+  checkInput = (id) => {
+    let tempItems = [...this.state.items];
+    tempItems = tempItems.map((element, index) => {
+      if (element.id === +id) {
+          element.completed = !element.completed;
       }
-      return checkItem
+      return element
     });
-
-    console.log(this.state.items)
+    this.setState({
+      items: tempItems
+    });
   };
 
   handleOnChange = event => {
@@ -58,9 +49,10 @@ class Input extends Component {
   };
 
   removeItemState = (id) => {
+    console.log(id);
     this.state.items.map((element, index) => {
       if (element.id === +id) {
-        delete this.state.items[element.id - 1];
+        this.state.items.splice(element.id - 1, 1);
       }
       return this.state.items;
     });
