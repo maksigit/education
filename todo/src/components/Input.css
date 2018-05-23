@@ -1,0 +1,13 @@
+.wrap-input {
+    background: lightcoral;
+    display: inline-block;
+}
+
+.item {
+    padding: 5px;
+}
+
+.item-check {
+    padding: 5px;
+    background: red;
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Item from "./Item";
 import ButtonRemAll from "./ButtonRemAll";
+import "./Input.css";
 
 let i = -1;
 
@@ -17,7 +18,7 @@ class Input extends Component {
         <input type="text" value={this.state.valueInput} className="input-task" onChange={this.handleOnChange}
                placeholder="Начать новый список"/>
         <button className="add-task" onClick={this.handleClick}>Добавить таск</button>
-        <Item data={this.state.items} fnDelItem={this.removeItemState} fnCheck={this.checkInput}/>
+        <Item data={this.state.items} fnDelItem={this.removeItemState} fnCheck={this.checkInput} addClass={this.addClass}/>
         {this.renderToDoButton()}
       </div>
     );
@@ -43,6 +44,11 @@ class Input extends Component {
     return isAnyCompleted ? <ButtonRemAll fnDel={this.deleteAllCheck} /> : null;
   };
 
+  addClass = (event) => {
+    let targetTeg = event.nativeEvent.target.parentNode;
+    return (targetTeg.className === "item-check") ? targetTeg.className = "item" : targetTeg.className = "item-check";
+  };
+
   checkInput = (id) => {
     let tempItems = [...this.state.items];
     tempItems = tempItems.map((element, index) => {
@@ -51,6 +57,8 @@ class Input extends Component {
       }
       return element
     });
+
+
     this.setState({
       items: tempItems
     });
