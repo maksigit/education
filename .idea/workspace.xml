@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4da4434b-ed7e-4434-8600-20d05cbaa9b6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/todo/src/components/Input.js" afterPath="$PROJECT_DIR$/todo/src/components/Input.js" />
-      <change beforePath="$PROJECT_DIR$/todo/src/components/Item.js" afterPath="$PROJECT_DIR$/todo/src/components/Item.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +17,8 @@
       <file leaf-file-name="Input.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/todo/src/components/Input.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+            <state relative-caret-position="450">
+              <caret line="79" column="19" lean-forward="true" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -183,12 +183,12 @@
       <updated>1526302363347</updated>
       <workItem from="1526302364531" duration="369000" />
       <workItem from="1526883668894" duration="43688000" />
-      <workItem from="1526994894780" duration="6802000" />
+      <workItem from="1526994894780" duration="7906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71801000" />
+    <option name="totallyTimeSpent" value="72905000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1313" height="780" extended-state="6" />
@@ -389,8 +389,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todo/src/components/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+        <state relative-caret-position="450">
+          <caret line="79" column="19" lean-forward="true" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

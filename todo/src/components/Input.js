@@ -72,7 +72,6 @@ class Input extends Component {
 
     tempItems.map((element, index) => {
       if (element.id !== +id) {
-        tempItems.splice(element.id - 1, 1);
         test.push(element)
       }
       return test;
@@ -87,7 +86,8 @@ class Input extends Component {
   handleClick = () => {
     this.state.items.push({id: this.generateId(), title: this.state.valueInput, completed: false});
     this.setState({
-      items: this.state.items
+      items: this.state.items,
+      valueInput: ''
     });
     console.log(this.state.items);
   };
