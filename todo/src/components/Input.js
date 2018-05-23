@@ -17,7 +17,7 @@ class Input extends Component {
         <input type="text" value={this.state.valueInput} className="input-task" onChange={this.handleOnChange}
                placeholder="Начать новый список"/>
         <button className="add-task" onClick={this.handleClick}>Добавить таск</button>
-        <Item data={this.state.items} fn={this.removeItemState} fnCheck={this.checkInput}/>
+        <Item data={this.state.items} fnDelItem={this.removeItemState} fnCheck={this.checkInput}/>
         {this.renderToDoButton()}
       </div>
     );
@@ -67,17 +67,22 @@ class Input extends Component {
 
   removeItemState = (id) => {
     console.log(id);
-    this.state.items.map((element, index) => {
-      if (element.id === +id) {
-        this.state.items.splice(element.id - 1, 1);
+    let tempItems = [...this.state.items];
+    let test = [];
+
+    tempItems.map((element, index) => {
+      if (element.id !== +id) {
+        tempItems.splice(element.id - 1, 1);
+        test.push(element)
       }
-      return this.state.items;
+      return test;
     });
     this.setState({
-      items: this.state.items
+      items: test
     });
     console.log(this.state.items);
   };
+
 
   handleClick = () => {
     this.state.items.push({id: this.generateId(), title: this.state.valueInput, completed: false});
