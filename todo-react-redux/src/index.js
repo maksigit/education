@@ -30,6 +30,12 @@ function markItem(temp, id) {
   return temp2
 }
 
+function toLoad(temp, obj=[]) {
+  console.log(temp);
+  console.log(obj);
+  return [...obj];
+}
+
 function todoList(state = [], action) {
   const item = {id: i++, title: action.payload, completed: false};
   if (action.type === 'ADD_TASK') {
@@ -43,6 +49,8 @@ function todoList(state = [], action) {
      return markItem(state, action.payload);
   } else if (action.type === 'REMOVE_ITEM_MARK') {
     return removeItemMark(state);
+  }  else if (action.type === 'TO_LOAD') {
+    return toLoad(state, action.payload);
   }
 
   return state
