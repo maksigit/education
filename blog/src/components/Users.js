@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import ListPosts from './ListPosts'
+import ListUsers from './ListUsers'
 
-class App extends Component {
+class Users extends Component {
 
   render() {
     return (
       <div className="App">
         <main>
 
-          <ListPosts />
+          <ListUsers />
 
         </main>
 
@@ -20,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Users;

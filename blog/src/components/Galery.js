@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListPosts from './ListPosts'
+import ListGalery from './ListGalery'
 
 class App extends Component {
 
@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <main>
 
-          <ListPosts />
+          <ListGalery />
 
         </main>
 

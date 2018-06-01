@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import getPosts from '../actions/getPosts'
+import getGalery from '../actions/getGalery'
 
-class ListPosts extends Component {
+class ListGalery extends Component {
 
   componentDidMount() {
     this.props.onAddPost();
@@ -16,13 +16,13 @@ class ListPosts extends Component {
 
     return (
       <div>
-        <h1>This is LIST POSTS</h1>
+        <h1>This is LIST GALERY</h1>
         <ul className='wrap-posts'>
           {
             posts.map((item, index) =>
               <li className='post' key={index}>
                 <div className='post-title'>{item.title}</div>
-                <div className='post-body'>{item.body}</div>
+                <img src={item.thumbnailUrl} />
               </li>
             )
           }
@@ -36,13 +36,13 @@ export default connect(
   state => {
     console.log('store ', state);
     return ({
-      testStore: state.posts
+      testStore: state.galery
     })
   },
   dispatch => {
     return ({
       onAddPost: () => {
-        getPosts(dispatch)
+        getGalery(dispatch)
         // dispatch({type: 'ADD_POST', payload: task})
       },
       // removeItem: (taskId) => {
@@ -59,4 +59,4 @@ export default connect(
       // }
     })
   }
-)(ListPosts);
+)(ListGalery);

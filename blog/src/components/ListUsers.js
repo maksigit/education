@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import getPosts from '../actions/getPosts'
+import getUsers from '../actions/getUsers'
 
-class ListPosts extends Component {
+class ListUsers extends Component {
 
   componentDidMount() {
     this.props.onAddPost();
@@ -16,13 +16,12 @@ class ListPosts extends Component {
 
     return (
       <div>
-        <h1>This is LIST POSTS</h1>
+        <h1>This is LIST USERS</h1>
         <ul className='wrap-posts'>
           {
             posts.map((item, index) =>
               <li className='post' key={index}>
-                <div className='post-title'>{item.title}</div>
-                <div className='post-body'>{item.body}</div>
+                <div className='post-title'>{item.username}</div>
               </li>
             )
           }
@@ -36,27 +35,16 @@ export default connect(
   state => {
     console.log('store ', state);
     return ({
-      testStore: state.posts
+      testStore: state.users
     })
   },
   dispatch => {
     return ({
       onAddPost: () => {
-        getPosts(dispatch)
+        getUsers(dispatch)
         // dispatch({type: 'ADD_POST', payload: task})
       },
-      // removeItem: (taskId) => {
-      //   dispatch({type: 'REMOVE_ITEM', payload: taskId})
-      // },
-      // checkItem: (taskId) => {
-      //   dispatch({type: 'CHECK_ITEM', payload: taskId})
-      // },
-      // removeItemMark: () => {
-      //   dispatch({type: 'REMOVE_ITEM_MARK'})
-      // },
-      // toLoad: (values) => {
-      //   dispatch({type: 'TO_LOAD', payload: values})
-      // }
     })
   }
-)(ListPosts);
+)(ListUsers);
+
