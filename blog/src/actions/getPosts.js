@@ -1,12 +1,8 @@
+import load from './ui'
 
 export default function getPosts(dispatch) {
-  fetch('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => {
-      return response.json()
-    })
+  load('https://jsonplaceholder.typicode.com/posts')
     .then((values) => {
-      // console.log('ggg', values);
       dispatch({type: 'ADD_POST', payload: values})
-
     });
 }

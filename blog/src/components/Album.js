@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import ListGalery from './ListGalery'
+import ListAlbum from './ListAlbum'
 
-class App extends Component {
-
+class Album extends Component {
   render() {
     return (
       <div className="App">
         <main>
 
-          <ListGalery history={this.props.history}/>
+          <ListAlbum id={this.props.match.params.id}  />
 
         </main>
 
@@ -20,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Album;

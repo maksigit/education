@@ -11,9 +11,6 @@ class ListPosts extends Component {
 
   render() {
     let posts = this.props.testStore;
-    console.log('posts =>', posts);
-    console.log('posts - title =>', posts.title);
-
     return (
       <div>
         <h1>This is LIST POSTS</h1>
@@ -34,7 +31,6 @@ class ListPosts extends Component {
 
 export default connect(
   state => {
-    console.log('store ', state);
     return ({
       testStore: state.posts
     })
@@ -43,20 +39,7 @@ export default connect(
     return ({
       onAddPost: () => {
         getPosts(dispatch)
-        // dispatch({type: 'ADD_POST', payload: task})
       },
-      // removeItem: (taskId) => {
-      //   dispatch({type: 'REMOVE_ITEM', payload: taskId})
-      // },
-      // checkItem: (taskId) => {
-      //   dispatch({type: 'CHECK_ITEM', payload: taskId})
-      // },
-      // removeItemMark: () => {
-      //   dispatch({type: 'REMOVE_ITEM_MARK'})
-      // },
-      // toLoad: (values) => {
-      //   dispatch({type: 'TO_LOAD', payload: values})
-      // }
     })
   }
 )(ListPosts);

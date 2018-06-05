@@ -15,6 +15,7 @@
     color: green;
     font-weight: bold;
     text-transform: uppercase;
+    display: block;
 }
 
 .post-body {

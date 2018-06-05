@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Links extends Component {
 
   render() {
-
     return (
       <div>
         <a className='link' href="/" > Блог </a>

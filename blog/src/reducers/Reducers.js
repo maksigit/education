@@ -33,4 +33,15 @@ export function rUsers(state = [], action) {
     return state
   }
 }
+export function rAlbum(state = [], action) {
+  // const item = {id: i++, title: action.payload, completed: false};
+  if (action.type === 'ADD_ALBUM') {
+    return [
+      ...action.payload
+    ];
+
+  } else {
+    return state
+  }
+}
 

@@ -1,12 +1,8 @@
+import load from './ui'
 
 export default function getGalery(dispatch) {
-  fetch('https://jsonplaceholder.typicode.com/photos?albumId=1')
-    .then((response) => {
-      return response.json()
-    })
+  load('https://jsonplaceholder.typicode.com/albums')
     .then((values) => {
-      // console.log('ggg', values);
       dispatch({type: 'ADD_GALERY', payload: values})
-
     });
 }
