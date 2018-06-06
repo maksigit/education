@@ -22,3 +22,11 @@
     margin-top: 10px;
     color: blue;
 }
+
+.link {
+    margin: 10px;
+}
+
+.post-width-img {
+    display: inline-block;
+}

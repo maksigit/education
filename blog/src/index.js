@@ -16,8 +16,7 @@ import Users from './components/Users';
 import Links from './components/Links';
 import Album from './components/Album';
 
-import './components/ListPosts.css';
-import './components/Links.css';
+import './components/all.css';
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
