@@ -3,19 +3,18 @@ import {connect} from 'react-redux';
 
 import AddCity from '../actions/AddCity'
 
-const arrCity = [];
-
 class InputCity extends Component {
 
   componentDidMount () {
     let fromLocal = localStorage.getItem('city');
     let fromLocalParce = JSON.parse(fromLocal);
 
-    this.props.setDataCity(fromLocalParce);
+    // this.props.setCityFromLS(fromLocalParce);
   };
 
   toLS = (city) => {
-   arrCity.push(city);
+    const arrCity = JSON.parse(localStorage.getItem('city'));
+    arrCity.push(city);
     localStorage.setItem('city', JSON.stringify(arrCity))
   };
 
@@ -26,7 +25,10 @@ class InputCity extends Component {
         <input type="text" ref={(input) => {this.trackInput = input}}/>
         {/*value={this.state.value}*/}
         {/*onChange={() => console.log('track', this.trackInput.value)}*/}
-        <button onClick={this.getDataCity}>Search</button>
+        <button onClick={() => {
+          // this.toLS(this.trackInput.value);
+          return this.props.getDataCity(this.trackInput.value)
+        }}>Search</button>
       </div>
     );
   }
@@ -41,12 +43,16 @@ export default connect(
   },
   dispatch => {
     return ({
-      setDataCity: (city) => {
-        city.map((item)=> {
-          return AddCity(dispatch, item)
-        });
+      getDataCity: (value) => {
 
+          return AddCity(dispatch, value)
       },
+      setCityFromLS: (city) => {
+
+      city.map((item)=> {
+        return AddCity(dispatch, item)
+      });
+    }
     })
   }
 )(InputCity);
