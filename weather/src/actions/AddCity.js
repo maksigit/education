@@ -10,13 +10,15 @@ export default function AddCity (dispatch, city) {
       console.log(values);
       dispatch({type: 'ADD_CITY', payload: values})
       console.log(values)
-      // toLs(city)
+      toLs(city)
       // this.props.setDataCity(values)
     });
 };
 
-// function toLs(city) {
-//   const arrCity = JSON.parse(localStorage.getItem('city'));
-//   arrCity.push(city);
-//   localStorage.setItem('city', JSON.stringify(arrCity))
-// }
+const arrCity = [];
+
+function toLs(city) {
+  // const arrCity = JSON.parse(localStorage.getItem('city'));
+  arrCity.push(city);
+  localStorage.setItem('city', JSON.stringify(arrCity))
+}

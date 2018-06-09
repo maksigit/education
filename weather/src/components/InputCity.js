@@ -7,9 +7,11 @@ class InputCity extends Component {
 
   componentDidMount () {
     let fromLocal = localStorage.getItem('city');
-    let fromLocalParce = JSON.parse(fromLocal);
-
-    // this.props.setCityFromLS(fromLocalParce);
+    console.log(fromLocal);
+    if (fromLocal) {
+      let fromLocalParce = JSON.parse(fromLocal);
+      this.props.setCityFromLS(fromLocalParce);
+    }
   };
 
   toLS = (city) => {
