@@ -7,9 +7,9 @@ import './index.css';
 import InputCity from "./components/InputCity";
 import OutPut from "./components/OutPut";
 
-import AddCity from "./reducers/AddCity";
+import ToStore from "./reducers/ToStore";
 
-const store = createStore(AddCity);
+const store = createStore(ToStore);
 
 console.log(store);
 
