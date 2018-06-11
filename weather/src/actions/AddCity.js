@@ -1,4 +1,4 @@
-export default function AddCity (dispatch, city) {
+export default function AddCity (dispatch, city) { // TODO: Обработка ошибок
   // this.toLS(this.trackInput.value);
 
   fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=19645c0082215d24540dff22a0607971`)
@@ -15,9 +15,9 @@ export default function AddCity (dispatch, city) {
     });
 };
 
-const arrCity = [];
+const arrCity = []; // TODO:  винести в toLs
 
-function toLs(city) {
+function toLs(city) { // TODO: дадати перевірку, що в LS  вже є дане місто
   // const arrCity = JSON.parse(localStorage.getItem('city'));
   arrCity.push(city);
   localStorage.setItem('city', JSON.stringify(arrCity))
