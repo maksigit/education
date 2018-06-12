@@ -5,7 +5,7 @@ import AddCity from '../actions/AddCity'
 
 class InputCity extends Component {
 
-  componentDidMount () {
+  componentDidMount() {
     let fromLocal = localStorage.getItem('city');
     console.log(fromLocal);
     if (fromLocal) {
@@ -24,13 +24,16 @@ class InputCity extends Component {
   render() {
     return (
       <div className="App">
-        <input type="text" ref={(input) => {this.trackInput = input}}/>
+        <input type="text" ref={(input) => {
+          this.trackInput = input
+        }}/>
         {/*value={this.state.value}*/}
         {/*onChange={() => console.log('track', this.trackInput.value)}*/}
         <button onClick={() => {
           // this.toLS(this.trackInput.value);
           return this.props.getDataCity(this.trackInput.value)
-        }}>Search</button>
+        }}>Search
+        </button>
       </div>
     );
   }
@@ -46,15 +49,23 @@ export default connect(
   dispatch => {
     return ({
       getDataCity: (value) => {
+        let fromLocal = localStorage.getItem('city');
+        let fromLocalParce = JSON.parse(fromLocal);
 
+        let boolCity = fromLocalParce? fromLocalParce.find(item => item.toLowerCase() === value.toLowerCase()): '';
+
+        if (!boolCity) {
           return AddCity(dispatch, value)
+        } else {
+          alert('estb takoy ' + value);
+        }
       },
       setCityFromLS: (city) => {
 
-      city.map((item)=> {
-        return AddCity(dispatch, item)
-      });
-    }
+        city.map((item) => {
+          return AddCity(dispatch, item)
+        });
+      }
     })
   }
 )(InputCity);
