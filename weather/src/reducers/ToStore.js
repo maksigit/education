@@ -6,6 +6,11 @@ export default function ToStore(state = [], action) {
       action.payload,
     ];
 
+  } else if (action.type === 'ADD_COORD') {
+    return [
+      ...state,
+      action.payload,
+    ];
   }
 
   return state

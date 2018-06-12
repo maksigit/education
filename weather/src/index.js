@@ -8,6 +8,7 @@ import InputCity from "./components/InputCity";
 import OutPut from "./components/OutPut";
 
 import ToStore from "./reducers/ToStore";
+import Map from "./components/Map";
 
 const store = createStore(ToStore);
 
@@ -17,6 +18,7 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <InputCity/>
+      <Map  />
       <OutPut/>
     </div>
   </Provider>,

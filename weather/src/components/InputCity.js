@@ -7,19 +7,11 @@ class InputCity extends Component {
 
   componentDidMount() {
     let fromLocal = localStorage.getItem('city');
-    console.log(fromLocal);
     if (fromLocal) {
       let fromLocalParce = JSON.parse(fromLocal);
       this.props.setCityFromLS(fromLocalParce);
     }
   };
-
-  toLS = (city) => {
-    const arrCity = JSON.parse(localStorage.getItem('city'));
-    arrCity.push(city);
-    localStorage.setItem('city', JSON.stringify(arrCity))
-  };
-
 
   render() {
     return (

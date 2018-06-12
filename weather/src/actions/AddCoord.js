@@ -1,17 +1,17 @@
-export default function AddCity (dispatch, city) { // TODO: Обработка ошибок
+export default function AddCoord (dispatch, lat, lng) {
 
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=19645c0082215d24540dff22a0607971`)
+  fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&APPID=19645c0082215d24540dff22a0607971`)
     .then((response) => {
       if(response.status === 200) {
         return response.json()
       } else {
         // throw(alert(response.statusText + ' city ' + `"${city}"`))
-        throw response.statusText + ' city ' + `"${city}"`
+        throw response.statusText + ' city ' + `"${lat}"`
       }
     })
     .then((values) => {
       console.log('second then',values);
-      dispatch({type: 'ADD_CITY', payload: values});
+      dispatch({type: 'ADD_COORD', payload: values});
       // toLs(city)
     })
     .catch((e) => {
@@ -19,9 +19,7 @@ export default function AddCity (dispatch, city) { // TODO: Обработка �
     });
 };
 
-// const arrCity = []; // TODO:  винести в toLs
-
-function toLs(city) { // TODO: дадати перевірку, що в LS  вже є дане місто
+function toLs(city) {
   let fromLocal = localStorage.getItem('city');
   let fromLocalParce = fromLocal ? JSON.parse(fromLocal) : [];
   // let arrCity = fromLocalParce ? fromLocalParce : ggg(fromLocalParce, city);

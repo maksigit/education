@@ -68,7 +68,7 @@ class OutPut extends Component {
 
             <li>
               <h2 className='title-item-weather'>Main</h2>
-              <span className='item-weather'>Temp: {Math.ceil((item.main.temp -273.15))} </span>
+              {/*<span className='item-weather'>Temp: {Math.ceil((item.main.temp -273.15))} </span>*/}
               <span className='item-weather'>Pressure: {item.main.pressure}</span>
               <span className='item-weather'>Humidity: {item.main.humidity}</span>
               <span className='item-weather'>Temp_min: {Math.ceil((item.main.temp_min -273.15))}</span>
@@ -77,7 +77,7 @@ class OutPut extends Component {
 
             <li>
               <h2 className='title-item-weather'>Visibility</h2>
-              <span className='item-weather'>Temp: {item.visibility.temp}</span>
+              {/*<span className='item-weather'>Temp: {item.visibility.temp}</span>*/}
             </li>
             <li>
               <h2 className='title-item-weather'>Wind</h2>
