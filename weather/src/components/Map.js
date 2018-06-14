@@ -9,7 +9,7 @@ const {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  FusionTablesLayer,
+  Marker
 } = require("react-google-maps");
 
 const MapWithAFusionTablesLayer = compose(
@@ -21,25 +21,17 @@ const MapWithAFusionTablesLayer = compose(
   }),
   withScriptjs,
   withGoogleMap
-)(props =>
-
-
-  <GoogleMap
-    defaultZoom={11}
-    defaultCenter={{lat: 49.440563935076376, lng: 32.0641728985338}}
-    // onClick={(data) => console.log(data.latLng.lat() + ' ' + data.latLng.lng())}
-    onClick={props.setCoordinate}
-  >
-    <FusionTablesLayer
-      url="http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml"
-      options={{
-        query: {
-          select: `Geocodable address`,
-          from: `1mZ53Z70NsChnBMm-qEYmSDOvLXgrreLTkQUvvg`
-        }
-      }}
-    />
-  </GoogleMap>
+)(({ testStore, setCoordinate, setCoord }) => {
+    const lat = testStore.length ? testStore[0].coord.lat : undefined;
+    const ln = testStore.length ? testStore[0].coord.lon : undefined;
+    return <GoogleMap
+      defaultZoom={11}
+      defaultCenter={{lat: 49.440563935076376, lng: 32.0641728985338}}
+      onClick={setCoordinate}
+    >
+      <Marker position={setCoord(lat, ln)}/>
+    </GoogleMap>
+  }
 );
 
 export default connect(
@@ -55,14 +47,21 @@ export default connect(
         console.log(value);
         let lat = value.latLng.lat();
         let lng = value.latLng.lng();
+
+
         return AddCoord(dispatch, lat, lng)
-        // dispatch({type: 'ADD_COORD', payload: latLng})
       },
       setCityFromLS: (city) => {
 
         city.map((item) => {
           return AddCity(dispatch, item)
         });
+      },
+      setCoord: (lat = 49.440563935076376, lng = 32.0641728985338) => {
+        return {
+          lat: lat,
+          lng: lng
+        }
       }
     })
   }

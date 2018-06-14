@@ -45,7 +45,7 @@ class OutPut extends Component {
           let newSunset = new Date(sunsetSec);
           let sunset = newSunset.getUTCHours() + ":" + newSunset.getUTCMinutes();
 
-          return <ul className='wrap-item-weather'>
+          return <ul key={item.id} className='wrap-item-weather'>
             <h2 className='title-item-weather'>{item.name}</h2>
             <li>
               <h2 className='title-item-weather'>Coord</h2>
