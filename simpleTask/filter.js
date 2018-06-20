@@ -1,14 +1,13 @@
 // Создайте собственную реализацию функции filter().
 
-function filter (arr, condition) {
+function filter(arr, fn) {
   let arrLenght = arr.length;
   let total = [];
 
   for (let i = 0; i < arrLenght; i++) {
     let n = arr[i];
-
-    if(n < 3) {
-      total[i] = arr[i]
+    if (fn(n)) {
+      total[i] = n
     }
   }
 
