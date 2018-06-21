@@ -10,7 +10,17 @@ import OutPut from "./components/OutPut";
 import ToStore from "./reducers/ToStore";
 import Map from "./components/Map";
 
-const store = createStore(ToStore);
+let ping = function ping(store) {
+  return function (next) {
+    return function (action) {
+      action.payload.testpole = 'proverka raz - dva';
+      console.log(`Тип события: ${action.type}, дополнительные данные события: ${action.payload.base}`)
+      return next(action);
+    };
+  };
+};
+
+const store = createStore(ToStore, applyMiddleware(ping));
 
 console.log(store);
 
