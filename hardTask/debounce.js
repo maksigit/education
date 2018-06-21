@@ -16,4 +16,15 @@
 // b();
 // b(); // только этот вызов должен вызывать a()
 
+// [1, [1, 2, [3, 4]], [2, 4]] -> [1, 1, 2, 3, 4, 2, 4]
 
+
+let bbb = [1, [1, 2, [3, 4]], [2, 4]];
+
+function getArr(arr) {
+  let toStr = arr.join();
+  let toArr = toStr.split(',');
+  return toArr
+}
+
+console.log(getArr(bbb));
